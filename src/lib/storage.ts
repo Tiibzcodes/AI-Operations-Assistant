@@ -18,6 +18,7 @@ const HKEY = "opspilot.history";
 const TKEY = "opspilot.threads";
 const SKEY = "opspilot.settings";
 const CKEY = "opspilot.counters";
+const PKEY = "opspilot.profile";
 
 export type Settings = { theme: "light" | "dark" | "system"; language: string; model: string; notifications: boolean };
 export type Counters = { ticket: number; email: number; meeting: number; research: number; planner: number; chat: number };
@@ -77,6 +78,17 @@ export function bumpCounter(k: keyof Counters) {
   const c = loadCounters();
   c[k] = (c[k] || 0) + 1;
   localStorage.setItem(CKEY, JSON.stringify(c));
+}
+
+export type Profile = { name: string; avatar: string | null };
+export function loadProfile(): Profile {
+  if (!isBrowser()) return { name: "Tebello", avatar: null };
+  try { return { name: "Tebello", avatar: null, ...JSON.parse(localStorage.getItem(PKEY) || "{}") }; } catch { return { name: "Tebello", avatar: null }; }
+}
+export function saveProfile(p: Profile) {
+  if (!isBrowser()) return;
+  localStorage.setItem(PKEY, JSON.stringify(p));
+  window.dispatchEvent(new Event("opspilot:profile"));
 }
 
 export function uid() { return Math.random().toString(36).slice(2) + Date.now().toString(36); }
