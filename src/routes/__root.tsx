@@ -79,13 +79,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "OpsPilot AI" },
-      { name: "description", content: "AI-powered workplace assistant for Operations, Support, and Customer Success teams." },
+      { title: "OpsPilot AI — Operations & Productivity Copilot" },
+      { name: "description", content: "Your AI-powered workplace assistant for Operations, Technical Support and Customer Success teams. Analyze tickets, draft emails, summarize meetings, and plan your day." },
       { name: "author", content: "Tebello Chabeli" },
-      { property: "og:title", content: "OpsPilot AI" },
-      { property: "og:description", content: "AI-powered workplace assistant for Operations, Support, and Customer Success teams." },
+      { property: "og:title", content: "OpsPilot AI — Operations & Productivity Copilot" },
+      { property: "og:description", content: "Your AI-powered workplace assistant for Operations, Technical Support and Customer Success teams. Analyze tickets, draft emails, summarize meetings, and plan your day." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "OpsPilot AI — Operations & Productivity Copilot" },
+      { name: "twitter:description", content: "Your AI-powered workplace assistant for Operations, Technical Support and Customer Success teams. Analyze tickets, draft emails, summarize meetings, and plan your day." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/287ef23e-4996-4913-8a0b-0e7f91565a07/id-preview-3788b758--d095e154-4bf6-4fa5-a150-6c5beb49a881.lovable.app-1784720257791.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/287ef23e-4996-4913-8a0b-0e7f91565a07/id-preview-3788b758--d095e154-4bf6-4fa5-a150-6c5beb49a881.lovable.app-1784720257791.png" },
     ],
     links: [
       {

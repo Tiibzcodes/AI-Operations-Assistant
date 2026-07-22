@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
       { title: "OpsPilot AI — Operations & Productivity Copilot" },
       { name: "description", content: "Your AI-powered workplace assistant for Operations, Technical Support and Customer Success teams. Analyze tickets, draft emails, summarize meetings, and plan your day." },
       { property: "og:title", content: "OpsPilot AI — Operations & Productivity Copilot" },
-      { property: "og:description", content: "Reduce repetitive work with AI. Built for Ops, Support, CS, and Integration teams." },
+      { property: "og:description", content: "Your AI-powered workplace assistant for Operations, Technical Support and Customer Success teams. Analyze tickets, draft emails, summarize meetings, and plan your day." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
