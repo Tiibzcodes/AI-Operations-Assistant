@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShellRouteImport } from './routes/_shell'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ShellTicketsRouteImport } from './routes/_shell.tickets'
+import { Route as ShellResearchRouteImport } from './routes/_shell.research'
+import { Route as ShellMeetingsRouteImport } from './routes/_shell.meetings'
 import { Route as ShellDashboardRouteImport } from './routes/_shell.dashboard'
 
 const ShellRoute = ShellRouteImport.update({
@@ -22,6 +25,21 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShellTicketsRoute = ShellTicketsRouteImport.update({
+  id: '/tickets',
+  path: '/tickets',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellResearchRoute = ShellResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellMeetingsRoute = ShellMeetingsRouteImport.update({
+  id: '/meetings',
+  path: '/meetings',
+  getParentRoute: () => ShellRoute,
+} as any)
 const ShellDashboardRoute = ShellDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -31,23 +49,39 @@ const ShellDashboardRoute = ShellDashboardRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof ShellDashboardRoute
+  '/meetings': typeof ShellMeetingsRoute
+  '/research': typeof ShellResearchRoute
+  '/tickets': typeof ShellTicketsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof ShellDashboardRoute
+  '/meetings': typeof ShellMeetingsRoute
+  '/research': typeof ShellResearchRoute
+  '/tickets': typeof ShellTicketsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_shell': typeof ShellRouteWithChildren
   '/_shell/dashboard': typeof ShellDashboardRoute
+  '/_shell/meetings': typeof ShellMeetingsRoute
+  '/_shell/research': typeof ShellResearchRoute
+  '/_shell/tickets': typeof ShellTicketsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard'
+  fullPaths: '/' | '/dashboard' | '/meetings' | '/research' | '/tickets'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard'
-  id: '__root__' | '/' | '/_shell' | '/_shell/dashboard'
+  to: '/' | '/dashboard' | '/meetings' | '/research' | '/tickets'
+  id:
+    | '__root__'
+    | '/'
+    | '/_shell'
+    | '/_shell/dashboard'
+    | '/_shell/meetings'
+    | '/_shell/research'
+    | '/_shell/tickets'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -71,6 +105,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_shell/tickets': {
+      id: '/_shell/tickets'
+      path: '/tickets'
+      fullPath: '/tickets'
+      preLoaderRoute: typeof ShellTicketsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/research': {
+      id: '/_shell/research'
+      path: '/research'
+      fullPath: '/research'
+      preLoaderRoute: typeof ShellResearchRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/meetings': {
+      id: '/_shell/meetings'
+      path: '/meetings'
+      fullPath: '/meetings'
+      preLoaderRoute: typeof ShellMeetingsRouteImport
+      parentRoute: typeof ShellRoute
+    }
     '/_shell/dashboard': {
       id: '/_shell/dashboard'
       path: '/dashboard'
@@ -83,10 +138,16 @@ declare module '@tanstack/react-router' {
 
 interface ShellRouteChildren {
   ShellDashboardRoute: typeof ShellDashboardRoute
+  ShellMeetingsRoute: typeof ShellMeetingsRoute
+  ShellResearchRoute: typeof ShellResearchRoute
+  ShellTicketsRoute: typeof ShellTicketsRoute
 }
 
 const ShellRouteChildren: ShellRouteChildren = {
   ShellDashboardRoute: ShellDashboardRoute,
+  ShellMeetingsRoute: ShellMeetingsRoute,
+  ShellResearchRoute: ShellResearchRoute,
+  ShellTicketsRoute: ShellTicketsRoute,
 }
 
 const ShellRouteWithChildren = ShellRoute._addFileChildren(ShellRouteChildren)
