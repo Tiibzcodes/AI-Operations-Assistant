@@ -9,38 +9,187 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ShellRouteImport } from './routes/_shell'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ShellTicketsRouteImport } from './routes/_shell.tickets'
+import { Route as ShellSettingsRouteImport } from './routes/_shell.settings'
+import { Route as ShellResearchRouteImport } from './routes/_shell.research'
+import { Route as ShellPlannerRouteImport } from './routes/_shell.planner'
+import { Route as ShellMeetingsRouteImport } from './routes/_shell.meetings'
+import { Route as ShellHistoryRouteImport } from './routes/_shell.history'
+import { Route as ShellEmailRouteImport } from './routes/_shell.email'
+import { Route as ShellDashboardRouteImport } from './routes/_shell.dashboard'
+import { Route as ShellChatRouteImport } from './routes/_shell.chat'
+import { Route as ShellChatIndexRouteImport } from './routes/_shell.chat.index'
+import { Route as ShellChatThreadIdRouteImport } from './routes/_shell.chat.$threadId'
 
+const ShellRoute = ShellRouteImport.update({
+  id: '/_shell',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShellTicketsRoute = ShellTicketsRouteImport.update({
+  id: '/tickets',
+  path: '/tickets',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellSettingsRoute = ShellSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellResearchRoute = ShellResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellPlannerRoute = ShellPlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellMeetingsRoute = ShellMeetingsRouteImport.update({
+  id: '/meetings',
+  path: '/meetings',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellHistoryRoute = ShellHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellEmailRoute = ShellEmailRouteImport.update({
+  id: '/email',
+  path: '/email',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellDashboardRoute = ShellDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellChatRoute = ShellChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellChatIndexRoute = ShellChatIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShellChatRoute,
+} as any)
+const ShellChatThreadIdRoute = ShellChatThreadIdRouteImport.update({
+  id: '/$threadId',
+  path: '/$threadId',
+  getParentRoute: () => ShellChatRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chat': typeof ShellChatRouteWithChildren
+  '/dashboard': typeof ShellDashboardRoute
+  '/email': typeof ShellEmailRoute
+  '/history': typeof ShellHistoryRoute
+  '/meetings': typeof ShellMeetingsRoute
+  '/planner': typeof ShellPlannerRoute
+  '/research': typeof ShellResearchRoute
+  '/settings': typeof ShellSettingsRoute
+  '/tickets': typeof ShellTicketsRoute
+  '/chat/$threadId': typeof ShellChatThreadIdRoute
+  '/chat/': typeof ShellChatIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof ShellDashboardRoute
+  '/email': typeof ShellEmailRoute
+  '/history': typeof ShellHistoryRoute
+  '/meetings': typeof ShellMeetingsRoute
+  '/planner': typeof ShellPlannerRoute
+  '/research': typeof ShellResearchRoute
+  '/settings': typeof ShellSettingsRoute
+  '/tickets': typeof ShellTicketsRoute
+  '/chat/$threadId': typeof ShellChatThreadIdRoute
+  '/chat': typeof ShellChatIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_shell': typeof ShellRouteWithChildren
+  '/_shell/chat': typeof ShellChatRouteWithChildren
+  '/_shell/dashboard': typeof ShellDashboardRoute
+  '/_shell/email': typeof ShellEmailRoute
+  '/_shell/history': typeof ShellHistoryRoute
+  '/_shell/meetings': typeof ShellMeetingsRoute
+  '/_shell/planner': typeof ShellPlannerRoute
+  '/_shell/research': typeof ShellResearchRoute
+  '/_shell/settings': typeof ShellSettingsRoute
+  '/_shell/tickets': typeof ShellTicketsRoute
+  '/_shell/chat/$threadId': typeof ShellChatThreadIdRoute
+  '/_shell/chat/': typeof ShellChatIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/chat'
+    | '/dashboard'
+    | '/email'
+    | '/history'
+    | '/meetings'
+    | '/planner'
+    | '/research'
+    | '/settings'
+    | '/tickets'
+    | '/chat/$threadId'
+    | '/chat/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/email'
+    | '/history'
+    | '/meetings'
+    | '/planner'
+    | '/research'
+    | '/settings'
+    | '/tickets'
+    | '/chat/$threadId'
+    | '/chat'
+  id:
+    | '__root__'
+    | '/'
+    | '/_shell'
+    | '/_shell/chat'
+    | '/_shell/dashboard'
+    | '/_shell/email'
+    | '/_shell/history'
+    | '/_shell/meetings'
+    | '/_shell/planner'
+    | '/_shell/research'
+    | '/_shell/settings'
+    | '/_shell/tickets'
+    | '/_shell/chat/$threadId'
+    | '/_shell/chat/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ShellRoute: typeof ShellRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/_shell': {
+      id: '/_shell'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof ShellRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +197,130 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_shell/tickets': {
+      id: '/_shell/tickets'
+      path: '/tickets'
+      fullPath: '/tickets'
+      preLoaderRoute: typeof ShellTicketsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/settings': {
+      id: '/_shell/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof ShellSettingsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/research': {
+      id: '/_shell/research'
+      path: '/research'
+      fullPath: '/research'
+      preLoaderRoute: typeof ShellResearchRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/planner': {
+      id: '/_shell/planner'
+      path: '/planner'
+      fullPath: '/planner'
+      preLoaderRoute: typeof ShellPlannerRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/meetings': {
+      id: '/_shell/meetings'
+      path: '/meetings'
+      fullPath: '/meetings'
+      preLoaderRoute: typeof ShellMeetingsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/history': {
+      id: '/_shell/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof ShellHistoryRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/email': {
+      id: '/_shell/email'
+      path: '/email'
+      fullPath: '/email'
+      preLoaderRoute: typeof ShellEmailRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/dashboard': {
+      id: '/_shell/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof ShellDashboardRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/chat': {
+      id: '/_shell/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ShellChatRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/chat/': {
+      id: '/_shell/chat/'
+      path: '/'
+      fullPath: '/chat/'
+      preLoaderRoute: typeof ShellChatIndexRouteImport
+      parentRoute: typeof ShellChatRoute
+    }
+    '/_shell/chat/$threadId': {
+      id: '/_shell/chat/$threadId'
+      path: '/$threadId'
+      fullPath: '/chat/$threadId'
+      preLoaderRoute: typeof ShellChatThreadIdRouteImport
+      parentRoute: typeof ShellChatRoute
+    }
   }
 }
 
+interface ShellChatRouteChildren {
+  ShellChatThreadIdRoute: typeof ShellChatThreadIdRoute
+  ShellChatIndexRoute: typeof ShellChatIndexRoute
+}
+
+const ShellChatRouteChildren: ShellChatRouteChildren = {
+  ShellChatThreadIdRoute: ShellChatThreadIdRoute,
+  ShellChatIndexRoute: ShellChatIndexRoute,
+}
+
+const ShellChatRouteWithChildren = ShellChatRoute._addFileChildren(
+  ShellChatRouteChildren,
+)
+
+interface ShellRouteChildren {
+  ShellChatRoute: typeof ShellChatRouteWithChildren
+  ShellDashboardRoute: typeof ShellDashboardRoute
+  ShellEmailRoute: typeof ShellEmailRoute
+  ShellHistoryRoute: typeof ShellHistoryRoute
+  ShellMeetingsRoute: typeof ShellMeetingsRoute
+  ShellPlannerRoute: typeof ShellPlannerRoute
+  ShellResearchRoute: typeof ShellResearchRoute
+  ShellSettingsRoute: typeof ShellSettingsRoute
+  ShellTicketsRoute: typeof ShellTicketsRoute
+}
+
+const ShellRouteChildren: ShellRouteChildren = {
+  ShellChatRoute: ShellChatRouteWithChildren,
+  ShellDashboardRoute: ShellDashboardRoute,
+  ShellEmailRoute: ShellEmailRoute,
+  ShellHistoryRoute: ShellHistoryRoute,
+  ShellMeetingsRoute: ShellMeetingsRoute,
+  ShellPlannerRoute: ShellPlannerRoute,
+  ShellResearchRoute: ShellResearchRoute,
+  ShellSettingsRoute: ShellSettingsRoute,
+  ShellTicketsRoute: ShellTicketsRoute,
+}
+
+const ShellRouteWithChildren = ShellRoute._addFileChildren(ShellRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ShellRoute: ShellRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
