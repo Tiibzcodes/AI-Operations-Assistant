@@ -13,7 +13,9 @@ import { Route as ShellRouteImport } from './routes/_shell'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShellTicketsRouteImport } from './routes/_shell.tickets'
 import { Route as ShellResearchRouteImport } from './routes/_shell.research'
+import { Route as ShellPlannerRouteImport } from './routes/_shell.planner'
 import { Route as ShellMeetingsRouteImport } from './routes/_shell.meetings'
+import { Route as ShellEmailRouteImport } from './routes/_shell.email'
 import { Route as ShellDashboardRouteImport } from './routes/_shell.dashboard'
 
 const ShellRoute = ShellRouteImport.update({
@@ -35,9 +37,19 @@ const ShellResearchRoute = ShellResearchRouteImport.update({
   path: '/research',
   getParentRoute: () => ShellRoute,
 } as any)
+const ShellPlannerRoute = ShellPlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => ShellRoute,
+} as any)
 const ShellMeetingsRoute = ShellMeetingsRouteImport.update({
   id: '/meetings',
   path: '/meetings',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellEmailRoute = ShellEmailRouteImport.update({
+  id: '/email',
+  path: '/email',
   getParentRoute: () => ShellRoute,
 } as any)
 const ShellDashboardRoute = ShellDashboardRouteImport.update({
@@ -49,14 +61,18 @@ const ShellDashboardRoute = ShellDashboardRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof ShellDashboardRoute
+  '/email': typeof ShellEmailRoute
   '/meetings': typeof ShellMeetingsRoute
+  '/planner': typeof ShellPlannerRoute
   '/research': typeof ShellResearchRoute
   '/tickets': typeof ShellTicketsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof ShellDashboardRoute
+  '/email': typeof ShellEmailRoute
   '/meetings': typeof ShellMeetingsRoute
+  '/planner': typeof ShellPlannerRoute
   '/research': typeof ShellResearchRoute
   '/tickets': typeof ShellTicketsRoute
 }
@@ -65,21 +81,39 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_shell': typeof ShellRouteWithChildren
   '/_shell/dashboard': typeof ShellDashboardRoute
+  '/_shell/email': typeof ShellEmailRoute
   '/_shell/meetings': typeof ShellMeetingsRoute
+  '/_shell/planner': typeof ShellPlannerRoute
   '/_shell/research': typeof ShellResearchRoute
   '/_shell/tickets': typeof ShellTicketsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/meetings' | '/research' | '/tickets'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/email'
+    | '/meetings'
+    | '/planner'
+    | '/research'
+    | '/tickets'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/meetings' | '/research' | '/tickets'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/email'
+    | '/meetings'
+    | '/planner'
+    | '/research'
+    | '/tickets'
   id:
     | '__root__'
     | '/'
     | '/_shell'
     | '/_shell/dashboard'
+    | '/_shell/email'
     | '/_shell/meetings'
+    | '/_shell/planner'
     | '/_shell/research'
     | '/_shell/tickets'
   fileRoutesById: FileRoutesById
@@ -119,11 +153,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShellResearchRouteImport
       parentRoute: typeof ShellRoute
     }
+    '/_shell/planner': {
+      id: '/_shell/planner'
+      path: '/planner'
+      fullPath: '/planner'
+      preLoaderRoute: typeof ShellPlannerRouteImport
+      parentRoute: typeof ShellRoute
+    }
     '/_shell/meetings': {
       id: '/_shell/meetings'
       path: '/meetings'
       fullPath: '/meetings'
       preLoaderRoute: typeof ShellMeetingsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/email': {
+      id: '/_shell/email'
+      path: '/email'
+      fullPath: '/email'
+      preLoaderRoute: typeof ShellEmailRouteImport
       parentRoute: typeof ShellRoute
     }
     '/_shell/dashboard': {
@@ -138,14 +186,18 @@ declare module '@tanstack/react-router' {
 
 interface ShellRouteChildren {
   ShellDashboardRoute: typeof ShellDashboardRoute
+  ShellEmailRoute: typeof ShellEmailRoute
   ShellMeetingsRoute: typeof ShellMeetingsRoute
+  ShellPlannerRoute: typeof ShellPlannerRoute
   ShellResearchRoute: typeof ShellResearchRoute
   ShellTicketsRoute: typeof ShellTicketsRoute
 }
 
 const ShellRouteChildren: ShellRouteChildren = {
   ShellDashboardRoute: ShellDashboardRoute,
+  ShellEmailRoute: ShellEmailRoute,
   ShellMeetingsRoute: ShellMeetingsRoute,
+  ShellPlannerRoute: ShellPlannerRoute,
   ShellResearchRoute: ShellResearchRoute,
   ShellTicketsRoute: ShellTicketsRoute,
 }
