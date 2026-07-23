@@ -87,35 +87,35 @@ OpsPilot AI streamlines operational workflows by combining multiple AI-powered t
 
 ## Dashboard
 
-![Dashboard](assets/screenshots/dashboard.png)
+![Dashboard](profile/dashboard.png)
 
 ## AI Ticket Analyzer
 
-![AI Ticket Analyzer](assets/screenshots/ticket-analyzer.png)
+![AI Ticket Analyzer](public/Ticket Analyser.png)
 
 ## Smart Email Generator
 
-![Email Generator](assets/screenshots/email-generator.png)
+![AI Email Generator](public/Email-Generator.png)
 
 ## Meeting Notes Summarizer
 
-![Meeting Summaries](assets/screenshots/meeting-summaries.png)
+![AI Meeting Summaries](public/Meeting-Summaries.png)
 
 ## AI Research Assistant
 
-![Research Assistant](assets/screenshots/research-assistant.png)
+![AI Research Assistant](public/Research-Assistant.png)
 
 ## Daily Operations Planner
 
-![Task Planner](assets/screenshots/task-planner.png)
+![Task Planner](public/Task-Planner.png)
 
 ## AI Workplace Chat
 
-![AI Chat](assets/screenshots/ai-chat.png)
+![AI Chat](public/Ai-Chat.png)
 
 ## Settings
 
-![Settings](assets/screenshots/settings.png)
+![Settings](public/Settings.png)
 
 ---
 
