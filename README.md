@@ -87,7 +87,7 @@ OpsPilot AI streamlines operational workflows by combining multiple AI-powered t
 
 ## Dashboard
 
-![Dashboard](profile/Dash-board.png)
+![Dashboard](profile/Dashboard.png)
 
 ## AI Ticket Analyzer
 
