@@ -180,16 +180,19 @@ npm run build
 # 📂 Folder Structure
 
 ```text
-assets/
-└── screenshots/
-    ├── dashboard.png
-    ├── ticket-analyzer.png
-    ├── email-generator.png
-    ├── meeting-summaries.png
-    ├── research-assistant.png
-    ├── task-planner.png
-    ├── ai-chat.png
-    └── settings.png
+AI-Operations-Assistant
+│
+├── public
+│     └── screenshots
+│            dashboard.png
+│            ticket-analyzer.png
+│            email-generator.png
+│            meeting-summaries.png
+│            research-assistant.png
+│            task-planner.png
+│            ai-chat.png
+│            settings.png
+│
 ```
 
 ---
