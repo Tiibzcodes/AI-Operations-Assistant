@@ -16,7 +16,7 @@ OpsPilot AI is an AI-powered workplace assistant built to help Operations Specia
 
 ## 🌐 Live Demo
 
-👉 https://[YOUR-LOVABLE-URL](https://tebellochabeli-opspilot.lovable.app/)
+👉 (https://tebellochabeli-opspilot.lovable.app/)
 ---
 
 # 📑 Table of Contents
