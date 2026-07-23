@@ -1,7 +1,7 @@
 
 # 🤖 OpsPilot AI
 
-(assets/screenshots/dashboard.png)
+![Dashboard Preview](assets/screenshots/dashboard.png)
 
 > **AI-Powered Operations & Productivity Copilot**
 
