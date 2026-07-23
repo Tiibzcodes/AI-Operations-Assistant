@@ -183,8 +183,7 @@ npm run build
 AI-Operations-Assistant
 │
 ├── public
-│     └── screenshots
-│            dashboard.png
+│     └──    dashboard.png
 │            ticket-analyzer.png
 │            email-generator.png
 │            meeting-summaries.png
@@ -192,6 +191,7 @@ AI-Operations-Assistant
 │            task-planner.png
 │            ai-chat.png
 │            settings.png
+│          
 │
 ```
 
