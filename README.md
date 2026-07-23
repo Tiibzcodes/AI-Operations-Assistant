@@ -14,6 +14,9 @@
 
 OpsPilot AI is an AI-powered workplace assistant built to help Operations Specialists, Technical Support Engineers, Customer Success teams and Integration Engineers automate repetitive work such as ticket analysis, email drafting, meeting summarization, technical research and daily task planning.
 
+## 🌐 Live Demo
+
+👉 https://[YOUR-LOVABLE-URL](https://tebellochabeli-opspilot.lovable.app/)
 ---
 
 # 📑 Table of Contents
